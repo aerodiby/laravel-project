@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Teacher;
+use Illuminate\Http\Request;
 
 class TeacherController extends Controller
 {
@@ -12,11 +12,11 @@ class TeacherController extends Controller
      */
     public function index()
     {
-        $title = 'Teacher';
-        $content = 'Selamat datang di halaman teacher';
-        $teachers = Teacher::with('subject')->get();
-
-        return view('Admin.teacher', compact('title', 'content', 'teachers'));
+        return view('Admin.teacher', [
+            'title' => 'Teacher',
+            'content' => 'Selamat datang di halaman teacher',
+            'teachers' => Teacher::with('subject')->get(),
+        ]);
     }
 
     /**

@@ -12,11 +12,11 @@ class SubjectController extends Controller
      */
     public function index()
     {
-        $title = 'Subject';
-        $content = 'Selamat datang di halaman subject';
-        $subjects = Subject::with('teacher')->get();
-
-        return view('Admin.subject', compact('title', 'content', 'subjects'));
+        return view('Admin.subject', [
+            'title' => 'Subject',
+            'content' => 'Selamat datang di halaman subject',
+            'subjects' => Subject::with('teacher')->get(),
+        ]);
     }
 
     /**

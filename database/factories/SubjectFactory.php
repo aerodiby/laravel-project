@@ -11,23 +11,12 @@ class SubjectFactory extends Factory
 
     public function definition(): array
     {
-        $subjects = [
-            'Matematika',
-            'Bahasa Indonesia',
-            'Bahasa Inggris',
-            'IPA',
-            'IPS',
-            'Pendidikan Agama',
-            'PPKn',
-            'Seni Budaya',
-            'PJOK',
-            'Informatika',
-            'Basis Data',
-            'Pemrograman Web'
-        ];
-
         return [
-            'name' => fake()->unique()->randomElement($subjects),
+            'name' => fake()->unique()->randomElement([
+                'Pemrograman Web', 'Pemrograman Gim', 'Basis Data',
+                'Matematika', 'Bahasa Indonesia', 'Bahasa Inggris',
+                'PKK', 'Desain Grafis', 'Pemrograman Perangkat Bergerak', 'Sejarah',
+            ]),
         ];
     }
 }

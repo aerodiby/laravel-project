@@ -12,7 +12,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->bigInteger('niy')->unique();
-            $table->foreignId('subject_id')->constrained('subjects')->onDelete('cascade');
+            $table->foreignId('subject_id')->constrained(
+                table: 'subjects',
+                indexName: 'teachers_subject_id',
+            );
             $table->date('start_date');
             $table->timestamps();
         });

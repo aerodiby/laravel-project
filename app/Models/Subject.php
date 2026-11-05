@@ -15,6 +15,6 @@ class Subject extends Model
 
     public function teacher()
     {
-        return $this->hasOne(Teacher::class, 'subject_id');
+        return $this->hasOne(Teacher::class);
     }
 }

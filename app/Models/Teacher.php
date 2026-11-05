@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Teacher extends Model
 {
-use HasFactory;
+    use HasFactory;
 
     protected $fillable = [
         'name',
@@ -16,8 +16,12 @@ use HasFactory;
         'start_date',
     ];
 
+    protected $casts = [
+        'start_date' => 'date',
+    ];
+
     public function subject()
     {
-        return $this->belongsTo(Subject::class, 'subject_id');
+        return $this->belongsTo(Subject::class);
     }
 }
